@@ -1,4 +1,4 @@
-package model;
+package mojagrupicaza.mingdji.model;
 
 import java.io.Serializable;
 
@@ -8,13 +8,13 @@ public class XKCD_infoObjectEntry implements Serializable {
     private int day;
     private String img;
     private String link;
-    private String month;
+    private int month;
     private String news;
     private int num;
     private String safe_title;
     private String title;
     private String transcript;
-    private String year;
+    private int year;
 
     public String getAlt() {
         return alt;
@@ -48,11 +48,11 @@ public class XKCD_infoObjectEntry implements Serializable {
         this.link = link;
     }
 
-    public String getMonth() {
+    public int getMonth() {
         return month;
     }
 
-    public void setMonth(String month) {
+    public void setMonth(int month) {
         this.month = month;
     }
 
@@ -96,11 +96,11 @@ public class XKCD_infoObjectEntry implements Serializable {
         this.transcript = transcript;
     }
 
-    public String getYear() {
+    public int getYear() {
         return year;
     }
 
-    public void setYear(String year) {
+    public void setYear(int year) {
         this.year = year;
     }
 }

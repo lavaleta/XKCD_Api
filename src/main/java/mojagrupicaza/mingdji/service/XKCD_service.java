@@ -1,15 +1,17 @@
-package service;
+package mojagrupicaza.mingdji.service;
 
-import model.XKCD_infoObject;
+import mojagrupicaza.mingdji.model.XKCD_infoObject;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.http.MediaType;
 import org.springframework.http.RequestEntity;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
 import java.net.URI;
 import java.net.URISyntaxException;
 
+@Service
 public class XKCD_service {
 
     private static final String MEME_URL = "https://xkcd.com/info.0.json";

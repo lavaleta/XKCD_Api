@@ -1,4 +1,4 @@
-package model;
+package mojagrupicaza.mingdji.model;
 
 public class XKCD_infoObject extends XKCD_infoObjectEntry{
 

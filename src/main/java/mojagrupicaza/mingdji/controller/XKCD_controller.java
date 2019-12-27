@@ -1,10 +1,10 @@
-package controller;
+package mojagrupicaza.mingdji.controller;
 
-import model.XKCD_infoObject;
+import mojagrupicaza.mingdji.model.XKCD_infoObject;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import service.XKCD_service;
+import mojagrupicaza.mingdji.service.XKCD_service;
 
 @RequestMapping("api/XKCD")
 @RestController
