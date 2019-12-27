@@ -2,6 +2,8 @@ package mojagrupicaza.mingdji.model;
 
 import java.io.Serializable;
 
+
+
 public class XKCD_infoObjectEntry implements Serializable {
 
     private String alt;

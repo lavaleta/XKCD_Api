@@ -1,6 +1,8 @@
 package mojagrupicaza.mingdji.service;
 
+import mojagrupicaza.mingdji.dao.XKCDdao;
 import mojagrupicaza.mingdji.model.XKCD_infoObject;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.http.MediaType;
 import org.springframework.http.RequestEntity;
@@ -10,24 +12,41 @@ import org.springframework.web.client.RestTemplate;
 
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.util.List;
 
 @Service
 public class XKCD_service {
 
-    private static final String MEME_URL = "https://xkcd.com/info.0.json";
+    private static final String MEME_URL_left = "https://xkcd.com/";
+    private static final String MEME_URL_right = "/info.0.json";
 
     private final RestTemplate restTemplate;
 
-    public XKCD_service(RestTemplate restTemplate) {
+
+    private final XKCDdao xkcDdao;
+
+    @Autowired
+    public XKCD_service(RestTemplate restTemplate, XKCDdao xkcDdao) {
+
         this.restTemplate = restTemplate;
+        this.xkcDdao = xkcDdao;
+    }
+
+    public List<XKCD_infoObject> getMemeHistory(){
+        return xkcDdao.findAll();
     }
 
     @Cacheable("XKCD")
     public String getMEME() {
         try {
-            URI url = new URI(MEME_URL);
-            Object o = invoke(url, XKCD_infoObject.class);
-            return ((XKCD_infoObject) o).getImg();
+            double randomDouble = Math.random();
+            randomDouble = randomDouble * 999 + 1;
+            int randomInt = (int) randomDouble;
+
+            URI url = new URI(MEME_URL_left + randomInt + MEME_URL_right );
+            XKCD_infoObject o = invoke(url, XKCD_infoObject.class);
+            xkcDdao.save(o);
+            return o.getImg();
         } catch (URISyntaxException e) {
             e.printStackTrace();
         }
