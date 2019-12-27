@@ -23,10 +23,11 @@ public class XKCD_service {
     }
 
     @Cacheable("XKCD")
-    public XKCD_infoObject getMEME() {
+    public String getMEME() {
         try {
             URI url = new URI(MEME_URL);
-            return invoke(url, XKCD_infoObject.class);
+            Object o = invoke(url, XKCD_infoObject.class);
+            return ((XKCD_infoObject) o).getImg();
         } catch (URISyntaxException e) {
             e.printStackTrace();
         }

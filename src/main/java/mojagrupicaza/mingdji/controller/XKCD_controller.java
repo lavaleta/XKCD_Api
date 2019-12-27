@@ -17,7 +17,7 @@ public class XKCD_controller {
     }
 
     @GetMapping()
-    public XKCD_infoObject getMEME(){
+    public String getMEME(){
         System.out.println("Zapravo zahtev radi kako treba? what?");
 
         return  xkcd_service.getMEME();
