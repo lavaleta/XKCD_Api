@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import mojagrupicaza.mingdji.service.XKCD_service;
 
-@RequestMapping("api/XKCD")
+@RequestMapping("api/xkcd")
 @RestController
 public class XKCD_controller {
 
